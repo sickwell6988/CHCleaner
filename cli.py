@@ -6,20 +6,20 @@ Sample CLI Clubhouse Client
 RTC: For voice communication
 """
 
+import configparser
 import os
 import sys
 import threading
-import configparser
+
 import keyboard
+import tabulate
 from clubhouse.clubhouse import Clubhouse
 from rich.console import Console
 from rich.table import Table
-from account import *
 
-import tabulate
 import lists_composer
+from account import *
 from logo import *
-
 
 # Set some global variables
 try:
@@ -299,7 +299,6 @@ def chat_main(client):
         if RTC:
             RTC.leaveChannel()
         client.leave_channel(channel_name)
-
 
 def user_authentication(client):
     """ (Clubhouse) -> NoneType
