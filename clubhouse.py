@@ -1579,3 +1579,7 @@ class Clubhouse:
         Not implemented method
         """
         raise NotImplementedError("Not Implemented!")
+
+
+def clubhouse():
+    return None

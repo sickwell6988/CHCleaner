@@ -13,15 +13,17 @@ import threading
 
 import keyboard
 import tabulate
-from clubhouse.clubhouse import Clubhouse
+from clubhouse import Clubhouse
 from rich.console import Console
 from rich.table import Table
 
 import lists_composer
 from account import *
 from logo import *
+from menu import *
 
 # Set some global variables
+
 try:
     import agorartc
     RTC = agorartc.createRtcEngineBridge()
@@ -347,19 +349,6 @@ def user_authentication(client):
     return
 
 
-def repeat_menu(ask_to_repeat=True):
-    while ask_to_repeat :
-        decision = input("Restart menu? (Y/n): ")
-        if decision.lower() != "y" and decision.lower() != "n" :
-            print("Incorrect value. Try again...")
-        elif decision.lower() == "n" :
-            print("Goodbye!")
-            exit(0)
-        else :
-            ask_to_repeat = False
-    main()
-
-
 def main():
     """
     Initialize required configurations, start with some basic stuff.
@@ -384,7 +373,7 @@ def main():
         if _check.get('detail') == 'Invalid token.':
             print("Session is expired. Re-auth required...")
             try:
-                cleanup_auth_session()
+                cleanup_auth_session(client)
                 main()
             except Exception as auth_err:
                 print(auth_err)
@@ -405,19 +394,56 @@ def main():
             mf_decision = input("[1] Display users you follow"
                                 "\n[2] Display mutual followers"
                                 "\n[3] Display non-mutual followings"
-                                "\n[4] List available rooms\n"
-                                "\n[5] Display non-mutual followings v2.0\n"
-                                ">>> ")
-            mf_decision_list = ["1","2","3","4","5"]
+                                "\n[4] List available rooms"
+                                "\n[5] Display non-mutual followings v2.0"
+                                "\n[6] Exit Application"
+                                "\n[7] Follow user"
+                                "\n[8] Un-follow user"
+                                "\n>>> ")
+            mf_decision = int(mf_decision)
+            mf_decision_list = [1,2,3,4,5,6,7,8]
             if mf_decision in mf_decision_list:
                 mf_decision_defined = True
-                if mf_decision == "4":
+                if mf_decision == 1 or mf_decision ==2:
+                    verify_integer_input = True
+                    while verify_integer_input:
+                        try:
+                            follow_get_count = int(input("Enter # of users you follow to get:\n>>> "))
+                            if follow_get_count > 0:
+                                verify_integer_input = False
+                        except Exception:
+                            print("Provide positive number to proceed...")
+                if mf_decision == 4:
                     chat_main(client)
-                    repeat_menu(ask_to_repeat=False)
-                    return
-                if mf_decision != "3" and mf_decision != "5":
-                    follow_get_count = input("Enter # of users you follow to get:\n>>> ")
-                else :
+                    if repeat_menu(ask_to_repeat=False) == False:
+                        main()
+                if mf_decision == 6:
+                    exit(0)
+                if mf_decision == 7:
+                    repeat_follow = True
+                    while repeat_follow:
+                        get_user_id = input("Enter user id, or 'q' to exit main menu: ")
+                        if get_user_id == "q":
+                            repeat_follow = False
+                            main()
+                        elif get_user_id.isdigit() and int(get_user_id) >= 0:
+                            follow_response = client.follow(user_id=get_user_id)
+                            print(follow_response)
+                        else:
+                            print("User id should be number. Try again...")
+                if mf_decision == 8:
+                    repeat_unfollow = True
+                    while repeat_unfollow:
+                        get_user_id = input("Enter user id, or 'q' to exit main menu: ")
+                        if get_user_id == "q":
+                            repeat_unfollow = False
+                            main()
+                        elif get_user_id.isdigit() and int(get_user_id) >= 0:
+                            unfollow_response = client.unfollow(user_id=get_user_id)
+                            print(unfollow_response)
+                        else:
+                            print("User id should be number. Try again...")
+                else: # if mf_decision = 3 or mf_decision = 5:
                     follow_get_count = 2300
             else:
                 print("Incorrect value. Try again...\n")
@@ -428,20 +454,21 @@ def main():
 
         table_to_display = ""
 
-        if mf_decision == "1" :
+        if mf_decision == 1 :
             table_to_display = lists_composer.compose_user_table(data_from_api=following_users)
-        if mf_decision == "2" :
+        if mf_decision == 2 :
             table_to_display = (lists_composer.compose_user_table(data_from_api=mutual_followers))
-        if mf_decision == "3" :
+        if mf_decision == 3 :
             table_to_display = (lists_composer.compose_non_mutual_user_table(data_from_api_following=following_users,
                                                                              data_from_api_mutual=mutual_followers))
-        if mf_decision == "5" :
+        if mf_decision == 5 :
             table_to_display = (lists_composer.compose_non_mutual_user_table_v2(data_from_api_following=following_users,
                                                                              data_from_api_follower=follower_users))
 
         print(tabulate.tabulate(table_to_display, headers=["#", "Id", "User Name"], showindex=True, tablefmt="pretty"))
 
-        repeat_menu()
+        if repeat_menu() == False:
+            main()
     else:
         client = Clubhouse()
         user_authentication(client)
