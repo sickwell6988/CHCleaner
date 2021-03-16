@@ -89,7 +89,7 @@ def read_config(filename='setting.ini'):
 def process_onboarding(client):
     """ (Clubhouse) -> NoneType
 
-    This is to process the initial setup for the first time user.
+    This is to process the initial setup for the first time user_account.
     """
     print("=" * 30)
     print("Welcome to Clubhouse!\n")
@@ -234,7 +234,7 @@ def chat_main(client):
                 continue
 
         # List currently available users (TOP 20 only.)
-        # Also, check for the current user's speaker permission.
+        # Also, check for the current user_account's speaker permission.
         channel_speaker_permission = False
         console = Console()
         table = Table(show_header=True, header_style="bold magenta")
@@ -256,7 +256,7 @@ def chat_main(client):
                 str(user['is_speaker']),
                 str(user['is_moderator']),
             )
-            # Check if the user is the speaker
+            # Check if the user_account is the speaker
             if user['user_id'] == int(user_id):
                 channel_speaker_permission = bool(user['is_speaker'])
         console.print(table)
@@ -305,7 +305,7 @@ def chat_main(client):
 def user_authentication(client):
     """ (Clubhouse) -> NoneType
 
-    Just for authenticating the user.
+    Just for authenticating the user_account.
     """
 
     result = None
@@ -337,7 +337,7 @@ def user_authentication(client):
         print("[!] You're still on the waitlist. Find your friends to get yourself in.")
         return
 
-    # Authenticate user first and start doing something
+    # Authenticate user_account first and start doing something
     client = Clubhouse(
         user_id=user_id,
         user_token=user_token,
@@ -360,7 +360,7 @@ def main():
     user_token = user_config.get('user_token')
     user_device = user_config.get('user_device')
 
-    # Check if user is authenticated
+    # Check if user_account is authenticated
     if user_id and user_token and user_device:
         client = Clubhouse(
             user_id=user_id,
@@ -368,7 +368,7 @@ def main():
             user_device=user_device
         )
 
-        # Check if user is still on the waitlist
+        # Check if user_account is still on the waitlist
         _check = client.check_waitlist_status()
         if _check.get('detail') == 'Invalid token.':
             print("Session is expired. Re-auth required...")
@@ -381,7 +381,7 @@ def main():
             print("[!] You're still on the waitlist. Find your friends to get yourself in.")
             return
 
-        # Check if user has not signed up yet.
+        # Check if user_account has not signed up yet.
         _check = client.me()
         if not _check['user_profile'].get("username"):
             process_onboarding(client)
@@ -397,8 +397,8 @@ def main():
                                 "\n[4] List available rooms"
                                 "\n[5] Display non-mutual followings v2.0"
                                 "\n[6] Exit Application"
-                                "\n[7] Follow user"
-                                "\n[8] Un-follow user"
+                                "\n[7] Follow user_account"
+                                "\n[8] Un-follow user_account"
                                 "\n>>> ")
             mf_decision = int(mf_decision)
             mf_decision_list = [1,2,3,4,5,6,7,8]
@@ -422,7 +422,7 @@ def main():
                 if mf_decision == 7:
                     repeat_follow = True
                     while repeat_follow:
-                        get_user_id = input("Enter user id, or 'q' to exit main menu: ")
+                        get_user_id = input("Enter user_account id, or 'q' to exit main menu: ")
                         if get_user_id == "q":
                             repeat_follow = False
                             main()
@@ -434,7 +434,7 @@ def main():
                 if mf_decision == 8:
                     repeat_unfollow = True
                     while repeat_unfollow:
-                        get_user_id = input("Enter user id, or 'q' to exit main menu: ")
+                        get_user_id = input("Enter user_account id, or 'q' to exit main menu: ")
                         if get_user_id == "q":
                             repeat_unfollow = False
                             main()

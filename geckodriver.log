@@ -1,0 +1,766 @@
+1615828774708	geckodriver	INFO	Listening on 127.0.0.1:61081
+1615828774810	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofileWXIlBO"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615828778035	Marionette	INFO	Listening on port 61086
+1615828778048	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/actors/AutoCompleteChild.jsm, line 208: Error: Invalid autocomplete selectedIndex
+1615828811399	Marionette	INFO	Stopped listening on port 61086
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1615828883548	geckodriver	INFO	Listening on 127.0.0.1:61217
+1615828884109	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofileNU9yVo"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615828886100	Marionette	INFO	Listening on port 61222
+1615828886165	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.instagram.com"
+SourceActor threw an exception: [Exception... "Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]"  nsresult: "0x80470002 (NS_BASE_STREAM_CLOSED)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: onResponse :: line 560"  data: no]
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:560:34
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 560, column: 0
+console.error: ({})
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 560: NS_BASE_STREAM_CLOSED: Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.instagram.com"
+1615829234041	Marionette	INFO	Stopped listening on port 61222
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1615829383145	geckodriver	INFO	Listening on 127.0.0.1:61585
+1615829383692	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofileLbhFzx"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615829385653	Marionette	INFO	Listening on port 61590
+1615829385752	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615829425141	Marionette	INFO	Stopped listening on port 61590
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1615829429536	geckodriver	INFO	Listening on 127.0.0.1:61661
+1615829429594	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofileSFNU9c"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615829431620	Marionette	INFO	Listening on port 61666
+1615829431644	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615829450646	Marionette	INFO	Stopped listening on port 61666
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1615829630691	geckodriver	INFO	Listening on 127.0.0.1:61904
+1615829631261	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofilex5bmbo"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615829633255	Marionette	INFO	Listening on port 61909
+1615829633312	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.instagram.com"
+SourceActor threw an exception: [Exception... "Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]"  nsresult: "0x80470002 (NS_BASE_STREAM_CLOSED)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: onResponse :: line 560"  data: no]
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:560:34
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 560, column: 0
+console.error: ({})
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 560: NS_BASE_STREAM_CLOSED: Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]
+1615829736042	Marionette	INFO	Stopped listening on port 61909
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1615831070980	geckodriver	INFO	Listening on 127.0.0.1:55088
+1615831071022	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofiles4vTGL"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615831073112	Marionette	INFO	Listening on port 55093
+1615831073183	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615831137210	geckodriver	INFO	Listening on 127.0.0.1:55236
+1615831137753	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofilewqTmOM"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615831139835	Marionette	INFO	Listening on port 55241
+1615831139910	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615832229429	Marionette	INFO	Stopped listening on port 55241
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+\Local\\Temp\\rust_mozprofiletqq838"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615831212627	Marionette	INFO	Listening on port 55377
+1615831212649	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.instagram.com/static/bundles/es6/Consumer.js/4f417f814642.js, line 915: TypeError: this.props is undefined
+1615832230194	Marionette	INFO	Stopped listening on port 55377
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615831294362	Marionette	INFO	Listening on port 55511
+1615831294404	Marionette	WARN	TLS certificate errors will be ignored for this session
+SourceActor threw an exception: [Exception... "Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]"  nsresult: "0x80470002 (NS_BASE_STREAM_CLOSED)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: onResponse :: line 560"  data: no]
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:560:34
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 560, column: 0
+console.error: ({})
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 560: NS_BASE_STREAM_CLOSED: Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]
+[11108:3784:0315/210528.459:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[11108:3784:0315/210528.459:ERROR:cache_util.cc(144)] Unable to move cache folder C:\Users\nikita.panada\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\nikita.panada\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+[11108:3784:0315/210528.459:ERROR:disk_cache.cc(184)] Unable to create cache
+[11108:3784:0315/210528.459:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+Opening in existing browser session.
+Invalid port. Exiting...
+Invalid port. Exiting...
+1615831945014	geckodriver	INFO	Listening on 127.0.0.1:56296
+1615831945029	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofileXXKL2s"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615831947109	Marionette	INFO	Listening on port 56301
+1615831947192	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615832202907	geckodriver	INFO	Listening on 127.0.0.1:56598
+1615832202926	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofilejs9Pme"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615832204947	Marionette	INFO	Listening on port 56605
+1615832204988	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615832238334	Marionette	INFO	Stopped listening on port 56605
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1615832242161	geckodriver	INFO	Listening on 127.0.0.1:56717
+1615832242232	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofile9IcXel"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615832244281	Marionette	INFO	Listening on port 56722
+1615832244291	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: Region.jsm: "Error fetching region" (new AbortError("The operation was aborted. ", (void 0), 636))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 343))
+1615833454625	Marionette	INFO	Stopped listening on port 56722
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+\Local\\Temp\\rust_mozprofilekMGixY"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615832299138	Marionette	INFO	Listening on port 57135
+1615832299581	Marionette	WARN	TLS certificate errors will be ignored for this session
+SourceActor threw an exception: [Exception... "Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]"  nsresult: "0x80470002 (NS_BASE_STREAM_CLOSED)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: onResponse :: line 560"  data: no]
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:560:34
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 560, column: 0
+console.error: ({})
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 560: NS_BASE_STREAM_CLOSED: Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]
+JavaScript error: https://www.instagram.com/static/bundles/es6/Consumer.js/4f417f814642.js, line 915: TypeError: this.props is undefined
+1615833455192	Marionette	INFO	Stopped listening on port 57135
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615832785024	Marionette	INFO	Listening on port 55122
+1615832785032	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.instagram.com/static/bundles/es6/Consumer.js/4f417f814642.js, line 915: TypeError: this.props is undefined
+1615833455512	Marionette	INFO	Stopped listening on port 55122
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615832849025	Marionette	INFO	Listening on port 55286
+1615832849108	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615832948317	geckodriver	INFO	Listening on 127.0.0.1:55438
+1615832948365	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofile4SGZuu"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615832950475	Marionette	INFO	Listening on port 55443
+1615832950531	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.instagram.com/static/bundles/es6/ConsumerLibCommons.js/037cd87afdbf.js, line 90: TypeError: o is undefined
+1615833456117	Marionette	INFO	Stopped listening on port 55443
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+\Local\\Temp\\rust_mozprofile1VCWWZ"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615833071030	Marionette	INFO	Listening on port 55620
+1615833071083	Marionette	WARN	TLS certificate errors will be ignored for this session
+SourceActor threw an exception: [Exception... "Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]"  nsresult: "0x80470002 (NS_BASE_STREAM_CLOSED)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: onResponse :: line 560"  data: no]
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:560:34
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 560, column: 0
+console.error: ({})
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 560: NS_BASE_STREAM_CLOSED: Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]
+console.error: (new TypeError("parent is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 67))
+TypeError: parent is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:67:24
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:226:34
+emit@resource://devtools/shared/event-emitter.js:172:18
+emit@resource://devtools/shared/event-emitter.js:324:18
+getMutations@resource://devtools/client/fronts/walker.js:409:10
+
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2245))
+Handler function threw an exception: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIHttpChannelInternal.remoteAddress]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: resource://devtools/server/actors/network-monitor/network-observer.js :: _onResponseHeader :: line 1085"  data: no]
+Stack: _onResponseHeader@resource://devtools/server/actors/network-monitor/network-observer.js:1085:5
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:588:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1085, column: 0
+console.error: ({})
+Handler function threw an exception: TypeError: undefined has no properties
+Stack: _getWaitTiming@resource://devtools/server/actors/network-monitor/network-observer.js:1172:1
+_setupHarTimings@resource://devtools/server/actors/network-monitor/network-observer.js:1397:28
+_onTransactionClose@resource://devtools/server/actors/network-monitor/network-observer.js:1120:27
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:591:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1172, column: 1
+console.error: (new TypeError("undefined has no properties", "resource://devtools/server/actors/network-monitor/network-observer.js", 1172))
+Handler function threw an exception: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIHttpChannelInternal.remoteAddress]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: resource://devtools/server/actors/network-monitor/network-observer.js :: _onResponseHeader :: line 1085"  data: no]
+Stack: _onResponseHeader@resource://devtools/server/actors/network-monitor/network-observer.js:1085:5
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:588:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1085, column: 0
+console.error: ({})
+Handler function threw an exception: TypeError: undefined has no properties
+Stack: _getWaitTiming@resource://devtools/server/actors/network-monitor/network-observer.js:1172:1
+_setupHarTimings@resource://devtools/server/actors/network-monitor/network-observer.js:1397:28
+_onTransactionClose@resource://devtools/server/actors/network-monitor/network-observer.js:1120:27
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:591:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1172, column: 1
+console.error: (new TypeError("undefined has no properties", "resource://devtools/server/actors/network-monitor/network-observer.js", 1172))
+Handler function threw an exception: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIHttpChannelInternal.remoteAddress]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: resource://devtools/server/actors/network-monitor/network-observer.js :: _onResponseHeader :: line 1085"  data: no]
+Stack: _onResponseHeader@resource://devtools/server/actors/network-monitor/network-observer.js:1085:5
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:588:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1085, column: 0
+console.error: ({})
+Handler function threw an exception: TypeError: undefined has no properties
+Stack: _getWaitTiming@resource://devtools/server/actors/network-monitor/network-observer.js:1172:1
+_setupHarTimings@resource://devtools/server/actors/network-monitor/network-observer.js:1397:28
+_onTransactionClose@resource://devtools/server/actors/network-monitor/network-observer.js:1120:27
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:591:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1172, column: 1
+console.error: (new TypeError("undefined has no properties", "resource://devtools/server/actors/network-monitor/network-observer.js", 1172))
+console.error: "Error writing request: getGrids"
+Handler function threw an exception: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIHttpChannelInternal.remoteAddress]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: resource://devtools/server/actors/network-monitor/network-observer.js :: _onResponseHeader :: line 1085"  data: no]
+Stack: _onResponseHeader@resource://devtools/server/actors/network-monitor/network-observer.js:1085:5
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:588:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1085, column: 0
+console.error: ({})
+Handler function threw an exception: TypeError: undefined has no properties
+Stack: _getWaitTiming@resource://devtools/server/actors/network-monitor/network-observer.js:1172:1
+_setupHarTimings@resource://devtools/server/actors/network-monitor/network-observer.js:1397:28
+_onTransactionClose@resource://devtools/server/actors/network-monitor/network-observer.js:1120:27
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:591:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1172, column: 1
+console.error: (new TypeError("undefined has no properties", "resource://devtools/server/actors/network-monitor/network-observer.js", 1172))
+Handler function threw an exception: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIHttpChannelInternal.remoteAddress]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: resource://devtools/server/actors/network-monitor/network-observer.js :: _onResponseHeader :: line 1085"  data: no]
+Stack: _onResponseHeader@resource://devtools/server/actors/network-monitor/network-observer.js:1085:5
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:588:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1085, column: 0
+console.error: ({})
+Handler function threw an exception: TypeError: undefined has no properties
+Stack: _getWaitTiming@resource://devtools/server/actors/network-monitor/network-observer.js:1172:1
+_setupHarTimings@resource://devtools/server/actors/network-monitor/network-observer.js:1397:28
+_onTransactionClose@resource://devtools/server/actors/network-monitor/network-observer.js:1120:27
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:591:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1172, column: 1
+console.error: (new TypeError("undefined has no properties", "resource://devtools/server/actors/network-monitor/network-observer.js", 1172))
+1615833170166	Marionette	INFO	Stopped listening on port 55620
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1615833174340	geckodriver	INFO	Listening on 127.0.0.1:55773
+1615833174883	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofilexT7epi"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615833176897	Marionette	INFO	Listening on port 55778
+1615833176939	Marionette	WARN	TLS certificate errors will be ignored for this session
+SourceActor threw an exception: [Exception... "Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]"  nsresult: "0x80470002 (NS_BASE_STREAM_CLOSED)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: onResponse :: line 560"  data: no]
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:560:34
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 560, column: 0
+console.error: ({})
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 560: NS_BASE_STREAM_CLOSED: Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]
+1615833452394	Marionette	INFO	Stopped listening on port 55778
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+\Local\\Temp\\rust_mozprofilepNoLpR"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615833451071	Marionette	INFO	Listening on port 56016
+1615833451169	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615833877938	Marionette	INFO	Stopped listening on port 56016
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+\Local\\Temp\\rust_mozprofilenjJT1G"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615833531271	Marionette	INFO	Listening on port 56127
+1615833531296	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615833877419	Marionette	INFO	Stopped listening on port 56127
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofile1LWFz0"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615833588150	Marionette	INFO	Listening on port 56228
+1615833588179	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615833876730	Marionette	INFO	Stopped listening on port 56228
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofilexZHy8f"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615833640363	Marionette	INFO	Listening on port 56328
+1615833640408	Marionette	WARN	TLS certificate errors will be ignored for this session
+SourceActor threw an exception: [Exception... "Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]"  nsresult: "0x80470002 (NS_BASE_STREAM_CLOSED)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: onResponse :: line 560"  data: no]
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:560:34
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 560, column: 0
+console.error: ({})
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 560: NS_BASE_STREAM_CLOSED: Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]
+Handler function threw an exception: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIHttpChannelInternal.remoteAddress]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: resource://devtools/server/actors/network-monitor/network-observer.js :: _onResponseHeader :: line 1085"  data: no]
+Stack: _onResponseHeader@resource://devtools/server/actors/network-monitor/network-observer.js:1085:5
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:588:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1085, column: 0
+console.error: ({})
+Handler function threw an exception: TypeError: undefined has no properties
+Stack: _getWaitTiming@resource://devtools/server/actors/network-monitor/network-observer.js:1172:1
+_setupHarTimings@resource://devtools/server/actors/network-monitor/network-observer.js:1397:28
+_onTransactionClose@resource://devtools/server/actors/network-monitor/network-observer.js:1120:27
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:591:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1172, column: 1
+console.error: (new TypeError("undefined has no properties", "resource://devtools/server/actors/network-monitor/network-observer.js", 1172))
+console.error: "Error while calling actor 'pagestyle's method 'getLayout'" "node is null"
+console.error: "getLayout@resource://devtools/server/actors/styles.js:1013:5\nhandler@resource://devtools/shared/protocol/Actor.js:162:37\nonPacket@resource://devtools/server/devtools-server-connection.js:379:58\nreceiveMessage@resource://devtools/shared/transport/child-transport.js:66:16\n"
+console.error: (new Error("Protocol error (TypeError): node is null from: server0.conn0.child2/pagestyle26 (resource://devtools/server/actors/styles.js:1013:5)", "resource://devtools/shared/protocol/Front.js", 323))
+JavaScript warning: https://www.instagram.com/static/bundles/es6/Consumer.js/4f417f814642.js, line 1: Script terminated by timeout at:
+c@https://www.instagram.com/static/bundles/es6/Consumer.js/4f417f814642.js:1:2201
+u/<@https://www.instagram.com/static/bundles/es6/Consumer.js/4f417f814642.js:1:2860
+_/<@https://www.instagram.com/static/bundles/es6/ConsumerLibCommons.js/037cd87afdbf.js:90:371
+_@https://www.instagram.com/static/bundles/es6/ConsumerLibCommons.js/037cd87afdbf.js:90:347
+s@https://www.instagram.com/static/bundles/es6/ConsumerLibCommons.js/037cd87afdbf.js:90:530
+c@https://www.instagram.com/static/bundles/es6/Consumer.js/4f417f814642.js:230:311
+n@https://www.instagram.com/static/bundles/es6/Consumer.js/4f417f814642.js:230:133
+t@https://www.instagram.com/static/bundles/es6/Consumer.js/4f417f814642.js:231:135
+e.initTimeSpentBitArrayLogger/<@https://www.instagram.com/static/bundles/es6/Consumer.js/4f417f814642.js:230:733
+inform/<@https://www.instagram.com/static/bundles/es6/ConsumerLibCommons.js/037cd87afdbf.js:87:142
+inform@https://www.instagram.com/static/bundles/es6/ConsumerLibCommons.js/037cd87afdbf.js:87:131
+h@https://www.instagram.com/static/bundles/es6/ConsumerLibCommons.js/037cd87afdbf.js:86:2108
+v@https://www.instagram.com/static/bundles/es6/ConsumerUICommons.js/39c38fbf0b2b.js:28:187
+
+Handler function threw an exception: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIHttpChannelInternal.remoteAddress]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: resource://devtools/server/actors/network-monitor/network-observer.js :: _onResponseHeader :: line 1085"  data: no]
+Stack: _onResponseHeader@resource://devtools/server/actors/network-monitor/network-observer.js:1085:5
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:588:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1085, column: 0
+console.error: ({})
+Handler function threw an exception: TypeError: undefined has no properties
+Stack: _getWaitTiming@resource://devtools/server/actors/network-monitor/network-observer.js:1172:1
+_setupHarTimings@resource://devtools/server/actors/network-monitor/network-observer.js:1397:28
+_onTransactionClose@resource://devtools/server/actors/network-monitor/network-observer.js:1120:27
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:591:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1172, column: 1
+console.error: (new TypeError("undefined has no properties", "resource://devtools/server/actors/network-monitor/network-observer.js", 1172))
+Handler function threw an exception: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIHttpChannelInternal.remoteAddress]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: resource://devtools/server/actors/network-monitor/network-observer.js :: _onResponseHeader :: line 1085"  data: no]
+Stack: _onResponseHeader@resource://devtools/server/actors/network-monitor/network-observer.js:1085:5
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:588:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1085, column: 0
+console.error: ({})
+Handler function threw an exception: TypeError: undefined has no properties
+Stack: _getWaitTiming@resource://devtools/server/actors/network-monitor/network-observer.js:1172:1
+_setupHarTimings@resource://devtools/server/actors/network-monitor/network-observer.js:1397:28
+_onTransactionClose@resource://devtools/server/actors/network-monitor/network-observer.js:1120:27
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:591:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1172, column: 1
+console.error: (new TypeError("undefined has no properties", "resource://devtools/server/actors/network-monitor/network-observer.js", 1172))
+Handler function threw an exception: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIHttpChannelInternal.remoteAddress]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: resource://devtools/server/actors/network-monitor/network-observer.js :: _onResponseHeader :: line 1085"  data: no]
+Stack: _onResponseHeader@resource://devtools/server/actors/network-monitor/network-observer.js:1085:5
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:588:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1085, column: 0
+console.error: ({})
+Handler function threw an exception: TypeError: undefined has no properties
+Stack: _getWaitTiming@resource://devtools/server/actors/network-monitor/network-observer.js:1172:1
+_setupHarTimings@resource://devtools/server/actors/network-monitor/network-observer.js:1397:28
+_onTransactionClose@resource://devtools/server/actors/network-monitor/network-observer.js:1120:27
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:591:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1172, column: 1
+console.error: (new TypeError("undefined has no properties", "resource://devtools/server/actors/network-monitor/network-observer.js", 1172))
+1615834033147	Marionette	INFO	Stopped listening on port 56328
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+\Local\\Temp\\rust_mozprofileyBOVBJ"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615834023052	Marionette	INFO	Listening on port 56695
+1615834023093	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615834073782	Marionette	INFO	Stopped listening on port 56695
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofile2GaFKg"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615834071890	Marionette	INFO	Listening on port 56798
+1615834072356	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615834173309	Marionette	INFO	Stopped listening on port 56798
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1615834175385	geckodriver	INFO	Listening on 127.0.0.1:56969
+1615834175455	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofileI16V7k"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615834177584	Marionette	INFO	Listening on port 56974
+1615834177621	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615834369497	geckodriver	INFO	Listening on 127.0.0.1:57202
+1615834369551	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofilepzgc1A"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615834371361	Marionette	INFO	Listening on port 57207
+1615834371608	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615834460158	geckodriver	INFO	Listening on 127.0.0.1:57350
+1615834460217	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofile71zeVJ"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615834462260	Marionette	INFO	Listening on port 57356
+1615834462275	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615834464232	Marionette	INFO	Stopped listening on port 57356
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1615834467364	geckodriver	INFO	Listening on 127.0.0.1:57396
+1615834467911	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofilecSeF9d"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615834469896	Marionette	INFO	Listening on port 57402
+1615834469974	Marionette	WARN	TLS certificate errors will be ignored for this session
+SourceActor threw an exception: [Exception... "Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]"  nsresult: "0x80470002 (NS_BASE_STREAM_CLOSED)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: onResponse :: line 560"  data: no]
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:560:34
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 560, column: 0
+console.error: ({})
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 560: NS_BASE_STREAM_CLOSED: Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]
+1615837298627	Marionette	INFO	Stopped listening on port 57402
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+\Local\\Temp\\rust_mozprofileMQsY7W"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615834639360	Marionette	INFO	Listening on port 57634
+1615834639431	Marionette	WARN	TLS certificate errors will be ignored for this session
+SourceActor threw an exception: [Exception... "Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]"  nsresult: "0x80470002 (NS_BASE_STREAM_CLOSED)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: onResponse :: line 560"  data: no]
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:560:34
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 560, column: 0
+console.error: ({})
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 560: NS_BASE_STREAM_CLOSED: Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]
+Handler function threw an exception: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIHttpChannelInternal.remoteAddress]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: resource://devtools/server/actors/network-monitor/network-observer.js :: _onResponseHeader :: line 1085"  data: no]
+Stack: _onResponseHeader@resource://devtools/server/actors/network-monitor/network-observer.js:1085:5
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:588:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1085, column: 0
+console.error: ({})
+Handler function threw an exception: TypeError: undefined has no properties
+Stack: _getWaitTiming@resource://devtools/server/actors/network-monitor/network-observer.js:1172:1
+_setupHarTimings@resource://devtools/server/actors/network-monitor/network-observer.js:1397:28
+_onTransactionClose@resource://devtools/server/actors/network-monitor/network-observer.js:1120:27
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:591:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1172, column: 1
+console.error: (new TypeError("undefined has no properties", "resource://devtools/server/actors/network-monitor/network-observer.js", 1172))
+Handler function threw an exception: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIHttpChannelInternal.remoteAddress]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: resource://devtools/server/actors/network-monitor/network-observer.js :: _onResponseHeader :: line 1085"  data: no]
+Stack: _onResponseHeader@resource://devtools/server/actors/network-monitor/network-observer.js:1085:5
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:588:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1085, column: 0
+console.error: ({})
+Handler function threw an exception: TypeError: undefined has no properties
+Stack: _getWaitTiming@resource://devtools/server/actors/network-monitor/network-observer.js:1172:1
+_setupHarTimings@resource://devtools/server/actors/network-monitor/network-observer.js:1397:28
+_onTransactionClose@resource://devtools/server/actors/network-monitor/network-observer.js:1120:27
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:591:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1172, column: 1
+console.error: (new TypeError("undefined has no properties", "resource://devtools/server/actors/network-monitor/network-observer.js", 1172))
+1615837297268	Marionette	INFO	Stopped listening on port 57634
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1615837301330	geckodriver	INFO	Listening on 127.0.0.1:60184
+1615837301396	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofile9Hsz72"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615837303509	Marionette	INFO	Listening on port 60189
+1615837303566	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.instagram.com/static/bundles/es6/DirectMQTT.js/a8ac145d62f7.js, line 17: Error: Publish Timed Out
+JavaScript error: https://www.instagram.com/static/bundles/es6/DirectMQTT.js/a8ac145d62f7.js, line 17: Error: Publish Timed Out
+JavaScript error: https://www.instagram.com/static/bundles/es6/DirectMQTT.js/a8ac145d62f7.js, line 17: Error: Publish Timed Out
+1615838868962	Marionette	INFO	Stopped listening on port 60189
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+eNYAAKb"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615837569009	Marionette	INFO	Listening on port 60521
+1615837569064	Marionette	WARN	TLS certificate errors will be ignored for this session
+SourceActor threw an exception: [Exception... "Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]"  nsresult: "0x80470002 (NS_BASE_STREAM_CLOSED)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: onResponse :: line 560"  data: no]
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:560:34
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 560, column: 0
+console.error: ({})
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 560: NS_BASE_STREAM_CLOSED: Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]
+JavaScript error: https://www.instagram.com/static/bundles/es6/DirectMQTT.js/a8ac145d62f7.js, line 17: Error: Publish Timed Out
+JavaScript error: https://www.instagram.com/static/bundles/es6/DirectMQTT.js/a8ac145d62f7.js, line 17: Error: Publish Timed Out
+console.error: "Error while calling actor 'pagestyle's method 'getLayout'" "node is null"
+console.error: "getLayout@resource://devtools/server/actors/styles.js:1013:5\nhandler@resource://devtools/shared/protocol/Actor.js:162:37\nonPacket@resource://devtools/server/devtools-server-connection.js:379:58\nreceiveMessage@resource://devtools/shared/transport/child-transport.js:66:16\n"
+console.error: (new Error("Protocol error (TypeError): node is null from: server0.conn0.child2/pagestyle26 (resource://devtools/server/actors/styles.js:1013:5)", "resource://devtools/shared/protocol/Front.js", 323))
+Handler function threw an exception: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIHttpChannelInternal.remoteAddress]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: resource://devtools/server/actors/network-monitor/network-observer.js :: _onResponseHeader :: line 1085"  data: no]
+Stack: _onResponseHeader@resource://devtools/server/actors/network-monitor/network-observer.js:1085:5
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:588:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1085, column: 0
+console.error: ({})
+Handler function threw an exception: TypeError: undefined has no properties
+Stack: _getWaitTiming@resource://devtools/server/actors/network-monitor/network-observer.js:1172:1
+_setupHarTimings@resource://devtools/server/actors/network-monitor/network-observer.js:1397:28
+_onTransactionClose@resource://devtools/server/actors/network-monitor/network-observer.js:1120:27
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:591:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1172, column: 1
+console.error: (new TypeError("undefined has no properties", "resource://devtools/server/actors/network-monitor/network-observer.js", 1172))
+Handler function threw an exception: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIHttpChannelInternal.remoteAddress]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: resource://devtools/server/actors/network-monitor/network-observer.js :: _onResponseHeader :: line 1085"  data: no]
+Stack: _onResponseHeader@resource://devtools/server/actors/network-monitor/network-observer.js:1085:5
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:588:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1085, column: 0
+console.error: ({})
+Handler function threw an exception: TypeError: undefined has no properties
+Stack: _getWaitTiming@resource://devtools/server/actors/network-monitor/network-observer.js:1172:1
+_setupHarTimings@resource://devtools/server/actors/network-monitor/network-observer.js:1397:28
+_onTransactionClose@resource://devtools/server/actors/network-monitor/network-observer.js:1120:27
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:591:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1172, column: 1
+console.error: (new TypeError("undefined has no properties", "resource://devtools/server/actors/network-monitor/network-observer.js", 1172))
+Handler function threw an exception: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIHttpChannelInternal.remoteAddress]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: resource://devtools/server/actors/network-monitor/network-observer.js :: _onResponseHeader :: line 1085"  data: no]
+Stack: _onResponseHeader@resource://devtools/server/actors/network-monitor/network-observer.js:1085:5
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:588:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1085, column: 0
+console.error: ({})
+Handler function threw an exception: TypeError: undefined has no properties
+Stack: _getWaitTiming@resource://devtools/server/actors/network-monitor/network-observer.js:1172:1
+_setupHarTimings@resource://devtools/server/actors/network-monitor/network-observer.js:1397:28
+_onTransactionClose@resource://devtools/server/actors/network-monitor/network-observer.js:1120:27
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:591:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:669:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1172, column: 1
+console.error: (new TypeError("undefined has no properties", "resource://devtools/server/actors/network-monitor/network-observer.js", 1172))
+JavaScript error: https://www.instagram.com/static/bundles/es6/DirectMQTT.js/a8ac145d62f7.js, line 17: Error: Publish Timed Out
+1615837788305	Marionette	INFO	Stopped listening on port 60521
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+\Local\\Temp\\rust_mozprofileUOfN8W"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615837789445	Marionette	INFO	Listening on port 60708
+1615837789955	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.instagram.com/static/bundles/es6/DirectMQTT.js/a8ac145d62f7.js, line 17: Error: Publish Timed Out
+JavaScript error: https://www.instagram.com/static/bundles/es6/DirectMQTT.js/a8ac145d62f7.js, line 17: Error: Publish Timed Out
+1615838868584	Marionette	INFO	Stopped listening on port 60708
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+\Local\\Temp\\rust_mozprofilenoZ3sR"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615838275109	Marionette	INFO	Listening on port 60901
+1615838275374	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615838278578	geckodriver	INFO	Listening on 127.0.0.1:60935
+1615838279137	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofileJkOuDM"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615838281108	Marionette	INFO	Listening on port 60940
+1615838281192	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615838865654	Marionette	INFO	Stopped listening on port 60940
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+\Local\\Temp\\rust_mozprofile89d1AM"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615838355438	Marionette	INFO	Listening on port 61026
+1615838355708	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615838864985	Marionette	INFO	Stopped listening on port 61026
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+\Local\\Temp\\rust_mozprofilezeyesh"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615838440264	Marionette	INFO	Listening on port 61124
+1615838440360	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615838514048	geckodriver	INFO	Listening on 127.0.0.1:61189
+1615838514600	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofilepZ0v0u"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615838516494	Marionette	INFO	Listening on port 61194
+1615838516658	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.instagram.com/static/bundles/es6/DirectMQTT.js/a8ac145d62f7.js, line 17: Error: Publish Timed Out
+JavaScript error: https://www.instagram.com/static/bundles/es6/DirectMQTT.js/a8ac145d62f7.js, line 17: Error: Publish Timed Out
+1615838864406	Marionette	INFO	Stopped listening on port 61194
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+\Local\\Temp\\rust_mozprofile7qsyYV"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615838721848	Marionette	INFO	Listening on port 61318
+1615838721934	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615838820000	geckodriver	INFO	Listening on 127.0.0.1:61396
+1615838820565	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofilegqiRJX"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615838822609	Marionette	INFO	Listening on port 61401
+1615838822619	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615838864086	Marionette	INFO	Stopped listening on port 61401
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofileHoC2w6"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615838861583	Marionette	INFO	Listening on port 61461
+1615838861662	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615838934752	geckodriver	INFO	Listening on 127.0.0.1:61518
+1615838935288	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nikita.panada\\AppData\\Local\\Temp\\rust_mozprofile7oar98"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615838937189	Marionette	INFO	Listening on port 61523
+1615838937339	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.instagram.com/static/bundles/es6/DirectMQTT.js/a8ac145d62f7.js, line 17: Error: Publish Timed Out
+JavaScript error: https://www.instagram.com/static/bundles/es6/DirectMQTT.js/a8ac145d62f7.js, line 17: Error: Publish Timed Out
+1615839490587	Marionette	INFO	Stopped listening on port 61523
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+\Local\\Temp\\rust_mozprofilegtsXrp"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1615839378095	Marionette	INFO	Listening on port 61672
+1615839378200	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615839489664	Marionette	INFO	Stopped listening on port 61672
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+

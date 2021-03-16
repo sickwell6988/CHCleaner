@@ -161,7 +161,7 @@ class Clubhouse:
 
         Complete phone number authentication.
         This should return `auth_token`, `access_token`, `refresh_token`, is_waitlisted, ...
-        Please note that output may be different depending on the status of the authenticated user
+        Please note that output may be different depending on the status of the authenticated user_account
         """
         if self.HEADERS.get("Authorization"):
             raise Exception('Already Authenticatied')
@@ -235,7 +235,7 @@ class Clubhouse:
     def follow(self, user_id, user_ids=None, source=4, source_topic_id=None):
         """ (Clubhouse, int, list, int, int) -> dict
 
-        Follow a user.
+        Follow a user_account.
         Different value for `source` may require different parameters to be set
         """
         data = {
@@ -251,7 +251,7 @@ class Clubhouse:
     def unfollow(self, user_id):
         """ (Clubhouse, int) -> dict
 
-        Unfollow a user.
+        Unfollow a user_account.
         """
         data = {
             "user_id": int(user_id)
@@ -263,7 +263,7 @@ class Clubhouse:
     def block(self, user_id):
         """ (Clubhouse, int) -> dict
 
-        Block a user.
+        Block a user_account.
         """
         data = {
             "user_id": int(user_id)
@@ -275,7 +275,7 @@ class Clubhouse:
     def unblock(self, user_id):
         """ (Clubhouse, int) -> dict
 
-        Unfollow a user.
+        Unfollow a user_account.
         """
         data = {
             "user_id": int(user_id)
@@ -329,7 +329,7 @@ class Clubhouse:
     def update_follow_notifications(self, user_id, notification_type=2):
         """ (Clubhouse, str, int) -> dict
 
-        Update notification frequency for the given user.
+        Update notification frequency for the given user_account.
         1 = Always notify, 2 = Sometimes, 3 = Never
         """
         data = {
@@ -343,7 +343,7 @@ class Clubhouse:
     def get_suggested_follows_similar(self, user_id):
         """ (Clubhouse, int) -> dict
 
-        Get similar users based on the given user.
+        Get similar users based on the given user_account.
         """
         data = {
             "user_id": int(user_id),
@@ -516,7 +516,7 @@ class Clubhouse:
     def get_settings(self):
         """ (Clubhouse) -> dict
 
-        Receive user's settings.
+        Receive user_account's settings.
         """
         req = requests.get(f"{self.API_URL}/get_settings", headers=self.HEADERS)
         return req.json()
@@ -590,7 +590,7 @@ class Clubhouse:
         """ (Clubhouse, str, int) -> dict
 
         Make the current channel open to public.
-        Only people who user follows can join the channel.
+        Only people who user_account follows can join the channel.
         """
         data = {
             "channel": channel,
@@ -616,7 +616,7 @@ class Clubhouse:
     def make_moderator(self, channel, user_id):
         """ (Clubhouse, str, int) -> dict
 
-        Make the given user moderator. Requires moderator privilege.
+        Make the given user_account moderator. Requires moderator privilege.
         """
         data = {
             "channel": channel,
@@ -629,7 +629,7 @@ class Clubhouse:
     def block_from_channel(self, channel, user_id):
         """ (Clubhouse, str, int) -> dict
 
-        Remove the user from the channel. The user will not be able to re-join.
+        Remove the user_account from the channel. The user_account will not be able to re-join.
         """
         data = {
             "channel": channel,
@@ -696,7 +696,7 @@ class Clubhouse:
     def get_mutual_follows(self, user_id, page_size=50, page=1):
         """ (Clubhouse, str, int, int) -> dict
 
-        Get mutual followers between the current user and the given user_id.
+        Get mutual followers between the current user_account and the given user_id.
         """
         query = "user_id={}&page_size={}&page={}".format(
             user_id,
@@ -741,7 +741,7 @@ class Clubhouse:
     def active_ping(self, channel):
         """ (Clubhouse, str) -> dict
 
-        Keeping the user active while being in a chatroom
+        Keeping the user_account active while being in a chatroom
         """
         data = {
             "channel": channel,
@@ -941,7 +941,7 @@ class Clubhouse:
     def get_suggested_invites(self, club_id=None, upload_contacts=True, contacts=()):
         """ (Clubhouse, int, bool, list of dict) -> dict
 
-        Get invitations and user lists based on phone number.
+        Get invitations and user_account lists based on phone number.
 
         contacts(dict)
             - example: [{"name": "Test Name", "phone_number": "+821043219876"}, ...]
@@ -958,7 +958,7 @@ class Clubhouse:
     def get_suggested_club_invites(self, upload_contacts=True, contacts=()):
         """ (Clubhouse, int, bool, list of dict) -> dict
 
-        Get user lists based on phone number. For inviting clubs.
+        Get user_account lists based on phone number. For inviting clubs.
 
         contacts(dict)
             - example: [{"name": "Test Name", "phone_number": "+821043219876"}, ...]
@@ -1057,7 +1057,7 @@ class Clubhouse:
     def get_clubs(self, is_startable_only):
         """ (Clubhouse, bool) -> dict
 
-        Get list of clubs the user's in.
+        Get list of clubs the user_account's in.
         """
         data = {
             "is_startable_only": is_startable_only
@@ -1193,7 +1193,7 @@ class Clubhouse:
     def record_action_trails(self, action_trails=()):
         """ (Clubhouse, list of dict) -> dict
 
-        Recording actions of the user interactions while using the app.
+        Recording actions of the user_account interactions while using the app.
         action_trails: [{"blob_data":{}, "trail_type": "...", ...}, ...]
         """
         data = {
@@ -1206,7 +1206,7 @@ class Clubhouse:
     def add_user_topic(self, club_id=None, topic_id=None):
         """ (Clubhouse, int, int) -> dict
 
-        Add user's interest.
+        Add user_account's interest.
 
         Some interesting flags for Language has been shared in the following link.
         Reference: https://github.com/grishka/Houseclub/issues/24
@@ -1222,7 +1222,7 @@ class Clubhouse:
     def remove_user_topic(self, club_id, topic_id):
         """ (Clubhouse, int, int) -> dict
 
-        Remove user's interest
+        Remove user_account's interest
         """
         data = {
             "club_id": int(club_id) if club_id else None,
