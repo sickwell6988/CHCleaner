@@ -4,7 +4,8 @@ import time
 import random
 from selenium.common.exceptions import *
 
-driver = webdriver.Firefox(executable_path="c:/Users/nikita.panada/.m2/repository/webdriver/gecko/geckodriver.exe")
+driver = webdriver.Firefox(executable_path="c:/Users/nikita.panada/.m2/repository/webdriver/gecko/geckodriver.exe",
+                           service_log_path='nul')
 
 login_xpath = "//*[@id='loginForm']/div/div[1]/div/label/input"
 pwd_xpath = "//*[@id='loginForm']/div/div[2]/div/label/input"

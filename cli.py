@@ -17,9 +17,9 @@ from clubhouse import Clubhouse
 from rich.console import Console
 from rich.table import Table
 
-import lists_composer
-from account import *
 from logo import *
+from lists_composer import *
+from account import *
 from menu import *
 
 # Set some global variables
@@ -223,7 +223,7 @@ def chat_main(client):
         user_id = client.HEADERS.get("CH-UserID")
         print_channel_list(client, max_limit)
         channel_name = input("[.] Enter channel_name or 'q' to exit main menu: ")
-        if channel_name == "q":
+        if channel_name.lower() == "q":
             break
         channel_info = client.join_channel(channel_name)
         if not channel_info['success']:
@@ -349,130 +349,179 @@ def user_authentication(client):
     return
 
 
+def follow_unfollow(client, main_menu_decision):
+    repeat_follow = True
+    while repeat_follow:
+        get_user_id = input("Enter user_account id, or 'q' to exit main menu: ")
+        if get_user_id.lower() == "q":
+            repeat_follow = False
+            return True
+        elif get_user_id.isdigit() and int(get_user_id) >= 0:
+            if main_menu_decision == 4:
+                follow_response = client.follow(user_id=get_user_id)
+            else:               ## == 5
+                follow_response = client.unfollow(user_id=get_user_id)
+            print(f"Success: {follow_response.get('success')}")
+        else:
+            print(negat_val)
+
+
+def get_stats(client, user_id):
+    followers = client.get_followers(user_id=user_id)
+    followings = client.get_following(user_id=user_id)
+    mutual_followers = client.get_mutual_follows(user_id=user_id)
+
+    followers_stats_count = followers.get('count')
+    followings_stats_count = followings.get('count')
+    mutual_stats_count = mutual_followers.get('count')
+
+    return followers_stats_count, followings_stats_count, mutual_stats_count
+
+
+def get_all_followers(client, user_id, users_count):
+    page_number = 0
+    all_users = []
+    has_next_page = True
+    while has_next_page:
+        page_number += 1
+        ids = client.get_followers(user_id=user_id, page_size=users_count, page=page_number)
+        for user in ids['users']:
+            # all_users.append(ids['users'])
+            all_users.append(user)
+        if ids.get('next') is None:
+            return all_users
+
+
+def get_all_followings(client, user_id, users_count):
+    page_number = 0
+    all_users = []
+    has_next_page = True
+    while has_next_page:
+        page_number += 1
+        ids = client.get_following(user_id=user_id, page_size=users_count, page=page_number)
+        for user in ids['users']:
+            # all_users.append(ids['users'])
+            all_users.append(user)
+        if ids.get('next') is None:
+            return all_users
+
+
+def get_all_mutual(client, user_id, users_count):
+    page_number = 0
+    all_users = []
+    has_next_page = True
+    while has_next_page:
+        page_number += 1
+        ids = client.get_mutual_follows(user_id=user_id, page_size=users_count, page=page_number)
+        for user in ids['users']:
+            # all_users.append(ids['users'])
+            all_users.append(user)
+        if ids.get('next') is None:
+            return all_users
+
+
+def display_stats(client, user_id):
+    followers_stats_count, followings_stats_count, mutual_stats_count = get_stats(client, user_id)
+    print(f"Followers: {followers_stats_count}\t\tFollowing: {followings_stats_count}\t\tMutual followers: {mutual_stats_count}")
+
+
+def display_main_menu(client, user_id):
+    print_logo()
+    display_stats(client, user_id)
+    print(main_menu_options)
+
+
+def save_list():
+    pass
+# # following_dict = str(tabulate.tabulate(following_dict, headers=["#", "Id", "Username", "Name"], showindex=True, tablefmt="pretty")).encode(encoding='utf-8')
+#     # follower_dict = str(tabulate.tabulate(follower_dict, headers=["#", "Id", "Username", "Name"], showindex=True, tablefmt="pretty")).encode(encoding='utf-8')
+#     #
+#     # open(file="C:/Users/nikita.panada/OneDrive - Algosec Systems Ltd/Desktop/asdasd/followings2.txt", mode="wb").write(following_dict)
+#     # open(file="C:/Users/nikita.panada/OneDrive - Algosec Systems Ltd/Desktop/asdasd/follower_dict.txt", mode="wb").write(follower_dict)
+
+
+def main_menu_controller(client, user_id):
+
+    display_main_menu(client, user_id)
+    main_menu_decision = get_main_menu_input()
+
+    if main_menu_decision == 6:
+        chat_main(client)
+        if not repeat_menu(ask_to_repeat=False):
+            return True
+    elif main_menu_decision == 7:
+        exit(0)
+    elif main_menu_decision == 4 or main_menu_decision == 5:
+        follow_unfollow(client, main_menu_decision)
+        if not repeat_menu(ask_to_repeat=False):
+            return True
+    else:
+        users_count = 500
+        following_users = get_all_followings(client, user_id, users_count)
+        mutual_followers = get_all_mutual(client, user_id, users_count)
+
+        table_to_display = ""
+
+        if main_menu_decision == 1:
+            table_to_display = compose_user_table(data_from_api=following_users)
+        elif main_menu_decision == 2:
+            table_to_display = compose_user_table(data_from_api=mutual_followers)
+        elif main_menu_decision == 3:
+            table_to_display = compose_non_mutual_user_table(data_from_api_following=following_users, data_from_api_mutual=mutual_followers)
+
+        composed_table = tabulate.tabulate(table_to_display, headers=["#", "Id", "Username", "Name"], showindex=True, tablefmt="pretty")
+        print(composed_table)
+
+        client.record_action_trails()
+
+    if not repeat_menu():
+        return True
+
+
 def main():
     """
     Initialize required configurations, start with some basic stuff.
     """
-    # Initialize configuration
-    client = None
-    user_config = read_config()
-    user_id = user_config.get('user_id')
-    user_token = user_config.get('user_token')
-    user_device = user_config.get('user_device')
+    while True:
+        # Initialize configuration
+        client = None
+        user_config = read_config()
+        user_id = user_config.get('user_id')
+        user_token = user_config.get('user_token')
+        user_device = user_config.get('user_device')
 
-    # Check if user_account is authenticated
-    if user_id and user_token and user_device:
-        client = Clubhouse(
-            user_id=user_id,
-            user_token=user_token,
-            user_device=user_device
-        )
+        # Check if user_account is authenticated
+        if user_id and user_token and user_device:
+            client = Clubhouse(
+                user_id=user_id,
+                user_token=user_token,
+                user_device=user_device
+            )
 
-        # Check if user_account is still on the waitlist
-        _check = client.check_waitlist_status()
-        if _check.get('detail') == 'Invalid token.':
-            print("Session is expired. Re-auth required...")
-            try:
-                cleanup_auth_session(client)
-                main()
-            except Exception as auth_err:
-                print(auth_err)
-        if _check['is_waitlisted'] :
-            print("[!] You're still on the waitlist. Find your friends to get yourself in.")
-            return
+            # Check if user_account is still on the waitlist
+            _check = client.check_waitlist_status()
+            if _check.get('detail') == 'Invalid token.':
+                print("Session is expired. Re-auth required...")
+                try:
+                    cleanup_auth_session(client)
+                    main()
+                except Exception as auth_err:
+                    print(auth_err)
+            if _check['is_waitlisted'] :
+                print("[!] You're still on the waitlist. Find your friends to get yourself in.")
+                return
 
-        # Check if user_account has not signed up yet.
-        _check = client.me()
-        if not _check['user_profile'].get("username"):
-            process_onboarding(client)
+            # Check if user_account has not signed up yet.
+            _check = client.me()
+            if not _check['user_profile'].get("username"):
+                process_onboarding(client)
 
-        # chat_main(client)
-        print_logo()
-        mf_decision_defined = False
-
-        while not mf_decision_defined:
-            mf_decision = input("[1] Display users you follow"
-                                "\n[2] Display mutual followers"
-                                "\n[3] Display non-mutual followings"
-                                "\n[4] List available rooms"
-                                "\n[5] Display non-mutual followings v2.0"
-                                "\n[6] Exit Application"
-                                "\n[7] Follow user_account"
-                                "\n[8] Un-follow user_account"
-                                "\n>>> ")
-            mf_decision = int(mf_decision)
-            mf_decision_list = [1,2,3,4,5,6,7,8]
-            if mf_decision in mf_decision_list:
-                mf_decision_defined = True
-                if mf_decision == 1 or mf_decision ==2:
-                    verify_integer_input = True
-                    while verify_integer_input:
-                        try:
-                            follow_get_count = int(input("Enter # of users you follow to get:\n>>> "))
-                            if follow_get_count > 0:
-                                verify_integer_input = False
-                        except Exception:
-                            print("Provide positive number to proceed...")
-                if mf_decision == 4:
-                    chat_main(client)
-                    if repeat_menu(ask_to_repeat=False) == False:
-                        main()
-                if mf_decision == 6:
-                    exit(0)
-                if mf_decision == 7:
-                    repeat_follow = True
-                    while repeat_follow:
-                        get_user_id = input("Enter user_account id, or 'q' to exit main menu: ")
-                        if get_user_id == "q":
-                            repeat_follow = False
-                            main()
-                        elif get_user_id.isdigit() and int(get_user_id) >= 0:
-                            follow_response = client.follow(user_id=get_user_id)
-                            print(follow_response)
-                        else:
-                            print("User id should be number. Try again...")
-                if mf_decision == 8:
-                    repeat_unfollow = True
-                    while repeat_unfollow:
-                        get_user_id = input("Enter user_account id, or 'q' to exit main menu: ")
-                        if get_user_id == "q":
-                            repeat_unfollow = False
-                            main()
-                        elif get_user_id.isdigit() and int(get_user_id) >= 0:
-                            unfollow_response = client.unfollow(user_id=get_user_id)
-                            print(unfollow_response)
-                        else:
-                            print("User id should be number. Try again...")
-                else: # if mf_decision = 3 or mf_decision = 5:
-                    follow_get_count = 2300
-            else:
-                print("Incorrect value. Try again...\n")
-
-        follower_users = client.get_followers(user_id=user_id, page_size=follow_get_count)
-        following_users = client.get_following(user_id=user_id, page_size=follow_get_count)
-        mutual_followers = client.get_mutual_follows(user_id=user_id, page_size=follow_get_count)
-
-        table_to_display = ""
-
-        if mf_decision == 1 :
-            table_to_display = lists_composer.compose_user_table(data_from_api=following_users)
-        if mf_decision == 2 :
-            table_to_display = (lists_composer.compose_user_table(data_from_api=mutual_followers))
-        if mf_decision == 3 :
-            table_to_display = (lists_composer.compose_non_mutual_user_table(data_from_api_following=following_users,
-                                                                             data_from_api_mutual=mutual_followers))
-        if mf_decision == 5 :
-            table_to_display = (lists_composer.compose_non_mutual_user_table_v2(data_from_api_following=following_users,
-                                                                             data_from_api_follower=follower_users))
-
-        print(tabulate.tabulate(table_to_display, headers=["#", "Id", "User Name"], showindex=True, tablefmt="pretty"))
-
-        if repeat_menu() == False:
+            main_menu_controller(client, user_id)
+        else:
+            client = Clubhouse()
+            user_authentication(client)
             main()
-    else:
-        client = Clubhouse()
-        user_authentication(client)
-        main()
+
 
 if __name__ == "__main__":
     try:
