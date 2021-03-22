@@ -471,9 +471,6 @@ def main_menu_controller(client, user_id):
 
         composed_table = tabulate.tabulate(table_to_display, headers=["#", "Id", "Username", "Name"], showindex=True, tablefmt="pretty")
         print(composed_table)
-
-        client.record_action_trails()
-
     if not repeat_menu():
         return True
 
