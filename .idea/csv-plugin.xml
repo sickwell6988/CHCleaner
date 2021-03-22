@@ -17,6 +17,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\connectDb.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\lists_composer.py">
           <value>
             <Attribute>

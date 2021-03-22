@@ -10,6 +10,7 @@ import configparser
 import os
 import sys
 import threading
+import connectDb
 
 import keyboard
 import tabulate
@@ -302,7 +303,8 @@ def chat_main(client):
             RTC.leaveChannel()
         client.leave_channel(channel_name)
 
-def user_authentication(client):
+
+def user_authentication(client, user_bot_id):
     """ (Clubhouse) -> NoneType
 
     Just for authenticating the user_account.
@@ -329,9 +331,11 @@ def user_authentication(client):
     user_id = result['user_profile']['user_id']
     user_token = result['auth_token']
     user_device = client.HEADERS.get("CH-DeviceId")
-    write_config(user_id, user_token, user_device)
+    # write_config(user_id, user_token, user_device)
+    connectDb.write_user_ch_data(user_id, user_token, user_device, user_bot_id)
 
-    print("[.] Writing configuration file complete.")
+    # print("[.] Writing configuration file complete.")
+    print("[.] Successfully authenticated.")
 
     if result['is_waitlisted']:
         print("[!] You're still on the waitlist. Find your friends to get yourself in.")
@@ -475,17 +479,21 @@ def main_menu_controller(client, user_id):
         return True
 
 
-def main():
+def main(is_auth_passed=False, user_bot_id=False):
     """
     Initialize required configurations, start with some basic stuff.
     """
     while True:
         # Initialize configuration
         client = None
-        user_config = read_config()
-        user_id = user_config.get('user_id')
-        user_token = user_config.get('user_token')
-        user_device = user_config.get('user_device')
+        # user_config = read_config()
+        # user_id = user_config.get('user_id')
+        # user_token = user_config.get('user_token')
+        # user_device = user_config.get('user_device')
+
+        if not is_auth_passed:
+            user_bot_id = connectDb.get_user_bot_data()
+        user_id, user_token, user_device = connectDb.get_user_ch_data(user_bot_id)
 
         # Check if user_account is authenticated
         if user_id and user_token and user_device:
@@ -516,8 +524,8 @@ def main():
             main_menu_controller(client, user_id)
         else:
             client = Clubhouse()
-            user_authentication(client)
-            main()
+            user_authentication(client, user_bot_id)
+            main(is_auth_passed=True, user_bot_id=user_bot_id)
 
 
 if __name__ == "__main__":
