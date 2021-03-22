@@ -486,13 +486,13 @@ def main(is_auth_passed=False, user_bot_id=False):
     while True:
         # Initialize configuration
         client = None
-        # user_config = read_config()
-        # user_id = user_config.get('user_id')
-        # user_token = user_config.get('user_token')
-        # user_device = user_config.get('user_device')
 
-        if not is_auth_passed:
-            user_bot_id = connectDb.get_user_bot_data()
+        is_cred_valid = False
+        while not is_cred_valid:
+            if not is_auth_passed:
+                user_bot_id = connectDb.get_user_bot_data()
+            if user_bot_id:
+                is_cred_valid = True
         user_id, user_token, user_device = connectDb.get_user_ch_data(user_bot_id)
 
         # Check if user_account is authenticated
