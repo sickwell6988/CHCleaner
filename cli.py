@@ -310,23 +310,50 @@ def user_authentication(client, user_bot_id):
     Just for authenticating the user_account.
     """
 
-    result = None
-    while True:
-        user_phone_number = input("[.] Please enter your phone number. (+818043217654) > ")
-        result = client.start_phone_number_auth(user_phone_number)
-        if not result['success']:
-            print(f"[-] Error occured during authentication. ({result['error_message']})")
-            continue
-        break
+    def get_user_phone():
+        resp = None
+        while True:
+            user_phone_number = input("[.] Please enter your phone number. (+818043217654) > ")
+            resp = client.start_phone_number_auth(user_phone_number)
+            if not resp['success']:
+                print(f"[-] Error occured during authentication. ({resp['error_message']})")
+                continue
+            return user_phone_number
+            # break
 
-    result = None
-    while True:
-        verification_code = input("[.] Please enter the SMS verification code (1234, 0000, ...) > ")
-        result = client.complete_phone_number_auth(user_phone_number, verification_code)
-        if not result['success']:
-            print(f"[-] Error occured during authentication. ({result['error_message']})")
-            continue
-        break
+    def get_user_code(phone):
+        resp = None
+        verification_code = ''
+        while True:
+            verification_code_rec = False
+            while not verification_code_rec:
+                verification_code = input("[.] Please enter the SMS verification code (1234, 0000, ...), or 'c' to resend SMS, or 'a' to edit phone number> ")
+                if verification_code.lower() == 'c':
+                    resend_result = client.start_phone_number_auth(phone)
+                    if not resend_result['success']:
+                        print(f"[-] Error occured during authentication. ({resp['error_message']})")
+                elif verification_code.lower() == 'a':
+                    # get_user_phone()
+                    # get_user_code(phone)
+                    return False
+                else:
+                    verification_code_rec = True
+            resp = client.complete_phone_number_auth(phone, verification_code)
+            if not resp['success']:
+                print(f"[-] Error occured during authentication. ({resp['error_message']})")
+                continue
+            try:
+                uid = resp['user_profile']['user_id']
+            except Exception:
+                print("Something went wrong. Please, contact administrator (error code: 3)")
+                continue
+            return resp
+
+    is_auth_completed = False
+    while not is_auth_completed:
+        user_number = get_user_phone()
+        result = get_user_code(user_number)
+        is_auth_completed = result
 
     user_id = result['user_profile']['user_id']
     user_token = result['auth_token']
