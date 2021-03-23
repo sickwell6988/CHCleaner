@@ -479,7 +479,7 @@ def main_menu_controller(client, user_id):
         return True
 
 
-def main(is_auth_passed=False, user_bot_id=False):
+def main(is_auth_passed=False, force_reauth = False, user_bot_id=False):
     """
     Initialize required configurations, start with some basic stuff.
     """
@@ -487,12 +487,13 @@ def main(is_auth_passed=False, user_bot_id=False):
         # Initialize configuration
         client = None
 
-        is_cred_valid = False
-        while not is_cred_valid:
-            if not is_auth_passed:
-                user_bot_id = connectDb.get_user_bot_data()
-            if user_bot_id:
-                is_cred_valid = True
+        if not force_reauth:
+            is_cred_valid = False
+            while not is_cred_valid:
+                if not is_auth_passed:
+                    user_bot_id = connectDb.get_user_bot_data()
+                if user_bot_id:
+                    is_cred_valid = True
         user_id, user_token, user_device = connectDb.get_user_ch_data(user_bot_id)
 
         # Check if user_account is authenticated
@@ -508,8 +509,8 @@ def main(is_auth_passed=False, user_bot_id=False):
             if _check.get('detail') == 'Invalid token.':
                 print("Session is expired. Re-auth required...")
                 try:
-                    cleanup_auth_session(client)
-                    main()
+                    cleanup_auth_session(client, user_bot_id)
+                    main(force_reauth=True, user_bot_id=user_bot_id)
                 except Exception as auth_err:
                     print(auth_err)
             if _check['is_waitlisted'] :
