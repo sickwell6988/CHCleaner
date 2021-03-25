@@ -397,6 +397,39 @@ def follow_unfollow(client, main_menu_decision):
             print(negat_val)
 
 
+def compose_whitelist():
+    decision = input("Do you wish to create a whitelist? [y/N] ")
+    if decision.lower() == "n":
+        return False
+    else:
+        empty_line = ''
+        # TODO:  ask for imput with new lines
+        # whitelist_input = input("Provide list of usernames separated\n* Every username = new line\n* Don't use spaces before/after username\n")
+        whitelist_input = open(r'C:\Users\nikita.panada\OneDrive - Algosec Systems Ltd\Desktop\a.txt').read()
+        # whitelist = whitelist_input.split(",")
+        whitelist = whitelist_input.split("\n")
+        while empty_line in whitelist:
+            whitelist.remove('')
+        return whitelist
+
+
+def follow_unfollow_list(client, users_list):
+    # ask about whitelist
+        # if yes, ask list of users => list
+    # Confirm start.
+        # if no, go back to main menu
+    # print : Starting operation...
+    #   print table headers:
+    # for each user id in list:
+    #   print line and result
+    # print table bottom.
+    # print "send q to go to main menu"
+
+    whitelist = compose_whitelist()
+    action_list = [user for user in users_list if user[1] not in whitelist]
+    return action_list
+
+
 def get_stats(client, user_id):
     followers = client.get_followers(user_id=user_id)
     followings = client.get_following(user_id=user_id)
@@ -462,8 +495,12 @@ def display_main_menu(client, user_id):
     print(main_menu_options)
 
 
-def save_list():
-    pass
+def compose_user_list(table):
+    id_list = []
+    for row in table:
+        id_list.append(row[0])
+    return id_list
+
 # # following_dict = str(tabulate.tabulate(following_dict, headers=["#", "Id", "Username", "Name"], showindex=True, tablefmt="pretty")).encode(encoding='utf-8')
 #     # follower_dict = str(tabulate.tabulate(follower_dict, headers=["#", "Id", "Username", "Name"], showindex=True, tablefmt="pretty")).encode(encoding='utf-8')
 #     #
@@ -502,8 +539,17 @@ def main_menu_controller(client, user_id):
 
         composed_table = tabulate.tabulate(table_to_display, headers=["#", "Id", "Username", "Name"], showindex=True, tablefmt="pretty")
         print(composed_table)
-    if not repeat_menu():
-        return True
+
+        start = start_follow_unfollow()
+        if not start:
+            if not repeat_menu():
+                return True
+        else:
+            # user_list = compose_user_list(table_to_display)
+            action_list = follow_unfollow_list(client, table_to_display)
+            composed_action_list = tabulate.tabulate(action_list, headers=["#", "Id", "Username", "Name"],
+                                               showindex=True, tablefmt="pretty")
+            print(composed_action_list)
 
 
 def main(is_auth_passed=False, force_reauth = False, user_bot_id=False):

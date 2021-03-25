@@ -41,6 +41,18 @@ def get_main_menu_input():
             print(invalid_val)
 
 
+def start_follow_unfollow():
+    decision = False
+    while not decision:
+        option = input("Would you like to unfollow listed people? (Y/n): ")
+        if option.lower() != "y" and option.lower() != "n":
+            print(invalid_val)
+        elif option.lower() == "n":
+            return False
+        else:
+            decision = True
+            return decision
+
 # def get_users_count():
 #     verify_integer_input = True
 #     while verify_integer_input:
