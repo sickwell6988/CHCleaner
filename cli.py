@@ -10,10 +10,14 @@ import configparser
 import os
 import sys
 import threading
+import time
+
 import connectDb
 
 import keyboard
 import tabulate
+
+import test
 from clubhouse import Clubhouse
 from rich.console import Console
 from rich.table import Table
@@ -414,19 +418,11 @@ def compose_whitelist():
 
 
 def follow_unfollow_list(client, users_list):
-    # ask about whitelist
-        # if yes, ask list of users => list
-    # Confirm start.
-        # if no, go back to main menu
-    # print : Starting operation...
-    #   print table headers:
-    # for each user id in list:
-    #   print line and result
-    # print table bottom.
-    # print "send q to go to main menu"
-
     whitelist = compose_whitelist()
-    action_list = [user for user in users_list if user[1] not in whitelist]
+    if not whitelist:
+        action_list = users_list
+    else:
+        action_list = [user for user in users_list if user[1] not in whitelist]
     return action_list
 
 
@@ -508,6 +504,40 @@ def compose_user_list(table):
 #     # open(file="C:/Users/nikita.panada/OneDrive - Algosec Systems Ltd/Desktop/asdasd/follower_dict.txt", mode="wb").write(follower_dict)
 
 
+def run_unfollowing(list_to_unfollow):
+    amount_is_set = False
+    while not amount_is_set:
+        try:
+            amount = int(input(
+                "Enter amount of users you want to unfollow (<=300 recommended per day + consider you follow actions): "))
+            amount_is_set = True
+        except ValueError:
+            print(invalid_val)
+    start_decision = start_follow_unfollow("run")
+    if not start_decision:
+        return False
+    print("Starting operation...")
+    time.sleep(3)
+
+    unfollowed_list = []
+    # TODO: implement real unfollow
+    for user in list_to_unfollow[:amount]:
+        unfollow_status = test.test_unfollow(user[0])
+        if unfollow_status == "Success":
+            status_value = "Unfollowed"
+        else:
+            status_value = "Try again later"
+        row = (*user, status_value)
+        unfollowed_list.append(row)
+        if status_value == "Unfollowed":
+            print(user[1] + ":\t" + "✅" + "\t" + status_value + "\n")
+        else:
+            print(user[1] + ":\t" + "❌" + "\t" + status_value + "\n")
+        # TODO: add time to sleep
+        # time.sleep(5)
+    return unfollowed_list
+
+
 def main_menu_controller(client, user_id):
 
     display_main_menu(client, user_id)
@@ -530,43 +560,70 @@ def main_menu_controller(client, user_id):
 
         table_to_display = ""
 
-        if main_menu_decision == 1:
-            table_to_display = compose_user_table(data_from_api=following_users)
-        elif main_menu_decision == 2:
-            table_to_display = compose_user_table(data_from_api=mutual_followers)
+        if main_menu_decision == 1 or main_menu_decision == 2:
+            if main_menu_decision == 1:
+                table_to_display = compose_user_table(data_from_api=following_users)
+            if main_menu_decision == 2:
+                table_to_display = compose_user_table(data_from_api=mutual_followers)
+            composed_table = tabulate.tabulate(table_to_display, headers=["#", "Id", "Username", "Name"],
+                                               showindex=True, tablefmt="pretty")
+            print(composed_table)
         elif main_menu_decision == 3:
             table_to_display = compose_non_mutual_user_table(data_from_api_following=following_users, data_from_api_mutual=mutual_followers)
+            composed_action_list = tabulate.tabulate(table_to_display, headers=["#", "Id", "Username", "Name"], showindex = True, tablefmt = "pretty")
+            print(composed_action_list)
 
-        composed_table = tabulate.tabulate(table_to_display, headers=["#", "Id", "Username", "Name"], showindex=True, tablefmt="pretty")
-        print(composed_table)
-
-        start = start_follow_unfollow()
-        if not start:
-            if not repeat_menu():
-                return True
-        else:
+            start = start_follow_unfollow("ask")
+            if not start:
+                if not repeat_menu(ask_to_repeat=False):
+                    return True
             # user_list = compose_user_list(table_to_display)
             action_list = follow_unfollow_list(client, table_to_display)
-            composed_action_list = tabulate.tabulate(action_list, headers=["#", "Id", "Username", "Name"],
-                                               showindex=True, tablefmt="pretty")
-            print(composed_action_list)
+            unfollowed_list = run_unfollowing(action_list)
+            if not unfollowed_list:
+                if not repeat_menu(unfollowed_list):
+                    return True
+            unfollowed_list_pretty = tabulate.tabulate(unfollowed_list,
+                                                       headers=["#", "Id", "Username", "Name", "Status"],
+                                                       showindex=True, tablefmt="pretty")
+            print(unfollowed_list_pretty)
+
+        if not repeat_menu():
+            return True
+
+
+        # ask about whitelist
+        # if yes, ask list of users => list
+        # Confirm start.
+        # if no, go back to main menu
+        # print : Starting operation...
+        #   print table headers:
+        # for each user id in list:
+        #   print line and result
+        # print table bottom.
+        # print "send q to go to main menu"
+
+
+
 
 
 def main(is_auth_passed=False, force_reauth = False, user_bot_id=False):
     """
     Initialize required configurations, start with some basic stuff.
     """
+    not_first_auth = False
     while True:
         # Initialize configuration
         client = None
 
-        if not force_reauth:
-            is_cred_valid = False
-            while not is_cred_valid:
-                if not is_auth_passed:
-                    user_bot_id = connectDb.get_user_bot_data()
-                if user_bot_id:
-                    is_cred_valid = True
+        if not not_first_auth:
+            if not force_reauth:
+                is_cred_valid = False
+                while not is_cred_valid:
+                    if not is_auth_passed:
+                        user_bot_id = connectDb.get_user_bot_data()
+                    if user_bot_id:
+                        is_cred_valid = True
         user_id, user_token, user_device = connectDb.get_user_ch_data(user_bot_id)
 
         # Check if user_account is authenticated
@@ -596,6 +653,8 @@ def main(is_auth_passed=False, force_reauth = False, user_bot_id=False):
                 process_onboarding(client)
 
             main_menu_controller(client, user_id)
+            not_first_auth = True
+
         else:
             client = Clubhouse()
             user_authentication(client, user_bot_id)

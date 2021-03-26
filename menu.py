@@ -17,11 +17,9 @@ negat_val = "Positive number expected"
 
 def repeat_menu(ask_to_repeat = True):
     while ask_to_repeat:
-        decision = input("Restart menu? (Y/n): ")
-        if decision.lower() != "y" and decision.lower() != "n":
+        decision = input("Press 'q' to open main menu: ")
+        if decision.lower() != "q":
             print(invalid_val)
-        elif decision.lower() == "n":
-            exit(0)
         else:
             ask_to_repeat = False
             return ask_to_repeat
@@ -41,10 +39,13 @@ def get_main_menu_input():
             print(invalid_val)
 
 
-def start_follow_unfollow():
+def start_follow_unfollow(stage):
     decision = False
     while not decision:
-        option = input("Would you like to unfollow listed people? (Y/n): ")
+        if stage == "ask":
+            option = input("Would you like to unfollow listed people? (Y/n): ")
+        else:  # == "run":
+            option = input("Start unfollowing non-mutual users? (Y/n): ")
         if option.lower() != "y" and option.lower() != "n":
             print(invalid_val)
         elif option.lower() == "n":
@@ -52,6 +53,7 @@ def start_follow_unfollow():
         else:
             decision = True
             return decision
+
 
 # def get_users_count():
 #     verify_integer_input = True
