@@ -1,6 +1,42 @@
 import sqlite3
 
 
+def check_type_and_fare(user_bot_id):
+    acc_type = get_acc_type(user_bot_id)
+    fare_count = get_fare_count(user_bot_id)
+    if acc_type == 'demo':
+        if fare_count > 0:
+            return True
+        else:
+            return False
+    else:      #== 'full'
+        return True
+
+
+def get_acc_type(user_bot_id):
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    acc_type = c.execute("SELECT acc_type FROM user_bot_data WHERE id = :id", {'id': user_bot_id}).fetchone()
+    c.close
+    return acc_type[0]
+
+
+def get_fare_count(user_bot_id):
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    fare_count = c.execute("SELECT fare FROM user_bot_data WHERE id = :id", {'id': user_bot_id}).fetchone()
+    return fare_count[0]
+
+
+def decrease_fare_count(user_bot_id):
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    c.execute("UPDATE user_bot_data SET fare = fare - 1 WHERE id = :id", {'id': user_bot_id}).fetchone()
+    conn.commit()
+    c.close()
+    return True
+
+
 def get_user_bot_data():
     user_name = input("Enter your CHCleaner username: ")
     user_pwd = input("Enter your CHCleaner password: ")

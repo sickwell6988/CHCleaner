@@ -384,7 +384,7 @@ def user_authentication(client, user_bot_id):
     return
 
 
-def follow_unfollow(client, main_menu_decision):
+def follow_unfollow(client, main_menu_decision, user_bot_id):
     repeat_follow = True
     while repeat_follow:
         get_user_id = input("Enter user_account id, or 'q' to exit main menu: ")
@@ -392,11 +392,24 @@ def follow_unfollow(client, main_menu_decision):
             repeat_follow = False
             return True
         elif get_user_id.isdigit() and int(get_user_id) >= 0:
-            if main_menu_decision == 4:
-                follow_response = client.follow(user_id=get_user_id)
-            else:               ## == 5
-                follow_response = client.unfollow(user_id=get_user_id)
-            print(f"Success: {follow_response.get('success')}")
+            acc_type = connectDb.get_acc_type(user_bot_id)
+            if acc_type == "demo":
+                have_fare_count = connectDb.get_fare_count(user_bot_id)
+                if have_fare_count > 0:
+                    if main_menu_decision == 4:
+                        follow_response = client.follow(user_id=get_user_id)
+                    else:               ## == 5
+                        follow_response = client.unfollow(user_id=get_user_id)
+                    connectDb.decrease_fare_count(user_bot_id)
+                    print(f"Success: {follow_response.get('success')}")
+                else:
+                    return print("Demo expired. Please, contact administrator to purchase full version")
+            else:    #== full
+                if main_menu_decision == 4:
+                    follow_response = client.follow(user_id=get_user_id)
+                else:  ## == 5
+                    follow_response = client.unfollow(user_id=get_user_id)
+                print(f"Success: {follow_response.get('success')}")
         else:
             print(negat_val)
 
@@ -508,7 +521,7 @@ def compose_user_list(table):
 #     # open(file="C:/Users/nikita.panada/OneDrive - Algosec Systems Ltd/Desktop/asdasd/follower_dict.txt", mode="wb").write(follower_dict)
 
 
-def run_unfollowing(client, list_to_unfollow):
+def run_unfollowing(client, list_to_unfollow, user_bot_id):
     amount_is_set = False
     while not amount_is_set:
         try:
@@ -535,6 +548,8 @@ def run_unfollowing(client, list_to_unfollow):
         #     status_value = "Try again later"
 
         unfollow_status = client.unfollow(user_id=user[0])
+        if connectDb.get_acc_type(user_bot_id) == "demo":
+            connectDb.decrease_fare_count(user_bot_id)
         if unfollow_status.get('success'): # == True:
             status_value = "Unfollowed"
             print(user[1] + ":\t" + "✅" + "\t" + status_value + "\n")
@@ -545,12 +560,18 @@ def run_unfollowing(client, list_to_unfollow):
         row = (*user, status_value)
         unfollowed_list.append(row)
 
+        can_proceed = connectDb.check_type_and_fare(user_bot_id)
+        if not can_proceed:
+            print("Demo expired. Please, contact administrator to purchase full version")
+            # if not repeat_menu(ask_to_repeat=False):
+            #     return True
+            return unfollowed_list
         time.sleep(5)
         # TODO: add ability to stop and go back to main menu
     return unfollowed_list
 
 
-def main_menu_controller(client, user_id):
+def main_menu_controller(client, user_id, user_bot_id):
 
     display_main_menu(client, user_id)
     main_menu_decision = get_main_menu_input()
@@ -562,7 +583,7 @@ def main_menu_controller(client, user_id):
     elif main_menu_decision == 7:
         exit(0)
     elif main_menu_decision == 4 or main_menu_decision == 5:
-        follow_unfollow(client, main_menu_decision)
+        follow_unfollow(client, main_menu_decision, user_bot_id)
         if not repeat_menu(ask_to_repeat=False):
             return True
     else:
@@ -581,6 +602,11 @@ def main_menu_controller(client, user_id):
                                                showindex=True, tablefmt="pretty")
             print(composed_table)
         elif main_menu_decision == 3:
+            can_proceed = connectDb.check_type_and_fare(user_bot_id)
+            if not can_proceed:
+                print("Demo expired. Please, contact administrator to purchase full version")
+                if not repeat_menu(ask_to_repeat=False):
+                    return True
             table_to_display = compose_non_mutual_user_table(data_from_api_following=following_users, data_from_api_mutual=mutual_followers)
             composed_action_list = tabulate.tabulate(table_to_display, headers=["#", "Id", "Username", "Name"], showindex = True, tablefmt = "pretty")
             print(composed_action_list)
@@ -591,7 +617,7 @@ def main_menu_controller(client, user_id):
                     return True
             # user_list = compose_user_list(table_to_display)
             action_list = follow_unfollow_list(table_to_display)
-            unfollowed_list = run_unfollowing(client, action_list)
+            unfollowed_list = run_unfollowing(client, action_list, user_bot_id)
             if not unfollowed_list:
                 if not repeat_menu(unfollowed_list):
                     return True
@@ -666,7 +692,7 @@ def main(is_auth_passed=False, force_reauth = False, user_bot_id=False):
             if not _check['user_profile'].get("username"):
                 process_onboarding(client)
 
-            main_menu_controller(client, user_id)
+            main_menu_controller(client, user_id, user_bot_id)
             not_first_auth = True
 
         else:
