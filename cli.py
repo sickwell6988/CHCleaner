@@ -407,17 +407,21 @@ def compose_whitelist():
         return False
     else:
         empty_line = ''
-        # TODO:  ask for imput with new lines
-        # whitelist_input = input("Provide list of usernames separated\n* Every username = new line\n* Don't use spaces before/after username\n")
+        whitelist = []
+        # TODO:  ask for imput with new lines (turned off)
+        # whitelist_input = input("Provide list of usernames (each from new line), or press 's' to skip:\n")
         whitelist_input = open(r'C:\Users\nikita.panada\OneDrive - Algosec Systems Ltd\Desktop\a.txt').read()
-        # whitelist = whitelist_input.split(",")
-        whitelist = whitelist_input.split("\n")
-        while empty_line in whitelist:
-            whitelist.remove('')
+        if whitelist_input.lower() != "s":
+            whitelist_split = whitelist_input.split("\n")
+            while empty_line in whitelist_split:
+                whitelist_split.remove('')
+            for user in whitelist_split:
+                user_strip = user.strip()
+                whitelist.append(user_strip)
         return whitelist
 
 
-def follow_unfollow_list(client, users_list):
+def follow_unfollow_list(users_list):
     whitelist = compose_whitelist()
     if not whitelist:
         action_list = users_list
@@ -504,13 +508,16 @@ def compose_user_list(table):
 #     # open(file="C:/Users/nikita.panada/OneDrive - Algosec Systems Ltd/Desktop/asdasd/follower_dict.txt", mode="wb").write(follower_dict)
 
 
-def run_unfollowing(list_to_unfollow):
+def run_unfollowing(client, list_to_unfollow):
     amount_is_set = False
     while not amount_is_set:
         try:
             amount = int(input(
                 "Enter amount of users you want to unfollow (<=300 recommended per day + consider you follow actions): "))
-            amount_is_set = True
+            if amount > 0:
+                amount_is_set = True
+            else:
+                print(negat_val)
         except ValueError:
             print(invalid_val)
     start_decision = start_follow_unfollow("run")
@@ -518,23 +525,28 @@ def run_unfollowing(list_to_unfollow):
         return False
     print("Starting operation...")
     time.sleep(3)
-
     unfollowed_list = []
-    # TODO: implement real unfollow
     for user in list_to_unfollow[:amount]:
-        unfollow_status = test.test_unfollow(user[0])
-        if unfollow_status == "Success":
+
+        # unfollow_status = test.test_unfollow(user[0])
+        # if unfollow_status == "Success":
+        #     status_value = "Unfollowed"
+        # else:
+        #     status_value = "Try again later"
+
+        unfollow_status = client.unfollow(user_id=user[0])
+        if unfollow_status.get('success'): # == True:
             status_value = "Unfollowed"
-        else:
-            status_value = "Try again later"
+            print(user[1] + ":\t" + "✅" + "\t" + status_value + "\n")
+        else:                             # == False:
+            status_value = "Failed. Try again later"
+            print(user[1] + ":\t" + "❌" + "\t" + status_value + "\n")
+
         row = (*user, status_value)
         unfollowed_list.append(row)
-        if status_value == "Unfollowed":
-            print(user[1] + ":\t" + "✅" + "\t" + status_value + "\n")
-        else:
-            print(user[1] + ":\t" + "❌" + "\t" + status_value + "\n")
-        # TODO: add time to sleep
-        # time.sleep(5)
+
+        time.sleep(5)
+        # TODO: add ability to stop and go back to main menu
     return unfollowed_list
 
 
@@ -578,11 +590,13 @@ def main_menu_controller(client, user_id):
                 if not repeat_menu(ask_to_repeat=False):
                     return True
             # user_list = compose_user_list(table_to_display)
-            action_list = follow_unfollow_list(client, table_to_display)
-            unfollowed_list = run_unfollowing(action_list)
+            action_list = follow_unfollow_list(table_to_display)
+            unfollowed_list = run_unfollowing(client, action_list)
             if not unfollowed_list:
                 if not repeat_menu(unfollowed_list):
                     return True
+            print("Building summary table...")
+            time.sleep(3)
             unfollowed_list_pretty = tabulate.tabulate(unfollowed_list,
                                                        headers=["#", "Id", "Username", "Name", "Status"],
                                                        showindex=True, tablefmt="pretty")
