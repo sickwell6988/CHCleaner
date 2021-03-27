@@ -484,14 +484,14 @@ def get_all_mutual(client, user_id, users_count):
             return all_users
 
 
-def display_stats(client, user_id):
+def display_stats(client, user_id, fare_count):
     followers_stats_count, followings_stats_count, mutual_stats_count = get_stats(client, user_id)
-    print(f"Followers: {followers_stats_count}\t\tFollowing: {followings_stats_count}\t\tMutual followers: {mutual_stats_count}")
+    print(f"Followers: {followers_stats_count}\t\tFollowing: {followings_stats_count}\t\tMutual followers: {mutual_stats_count}\t\tActions left: {fare_count}")
 
 
-def display_main_menu(client, user_id):
+def display_main_menu(client, user_id, fare_count):
     print_logo()
-    display_stats(client, user_id)
+    display_stats(client, user_id, fare_count)
     print(main_menu_options)
 
 
@@ -550,9 +550,9 @@ def run_unfollowing(client, list_to_unfollow):
     return unfollowed_list
 
 
-def main_menu_controller(client, user_id):
+def main_menu_controller(client, user_id, fare_count):
 
-    display_main_menu(client, user_id)
+    display_main_menu(client, user_id, fare_count)
     main_menu_decision = get_main_menu_input()
 
     if main_menu_decision == 6:
@@ -635,7 +635,7 @@ def main(is_auth_passed=False, force_reauth = False, user_bot_id=False):
                 is_cred_valid = False
                 while not is_cred_valid:
                     if not is_auth_passed:
-                        user_bot_id = connectDb.get_user_bot_data()
+                        user_bot_id, fare_count = connectDb.get_user_bot_data()
                     if user_bot_id:
                         is_cred_valid = True
         user_id, user_token, user_device = connectDb.get_user_ch_data(user_bot_id)
@@ -666,7 +666,7 @@ def main(is_auth_passed=False, force_reauth = False, user_bot_id=False):
             if not _check['user_profile'].get("username"):
                 process_onboarding(client)
 
-            main_menu_controller(client, user_id)
+            main_menu_controller(client, user_id, fare_count)
             not_first_auth = True
 
         else:

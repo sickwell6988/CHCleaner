@@ -18,8 +18,10 @@ def get_user_bot_data():
             print("Something went wrong. Please, contact administrator (error code: 2)")
             conn.close()
             return False
+
+    fare_count = c.execute("SELECT fare FROM user_bot_data WHERE user_name = :username", {'username': user_name}).fetchone()
     conn.close()
-    return resp[0]  # return id
+    return resp[0], fare_count[0]  # return id and fares' actions left
 
 
 def get_user_ch_data(id):
