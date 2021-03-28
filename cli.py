@@ -171,7 +171,8 @@ def print_channel_list(client, max_limit=20):
         )
     console.print(table)
 
-def chat_main(client):
+
+def chat_main(client, user_bot_id):
     """ (Clubhouse) -> NoneType
 
     Main function for chat
@@ -221,7 +222,6 @@ def chat_main(client):
                 return False
         return True
 
-
     while True:
         # Choose which channel to enter.
         # Join the talk on success.
@@ -229,7 +229,10 @@ def chat_main(client):
         print_channel_list(client, max_limit)
         channel_name = input("[.] Enter channel_name or 'q' to exit main menu: ")
         if channel_name.lower() == "q":
-            break
+            return True
+        i_active = connectDb.check_is_active(user_bot_id)
+        if not i_active:
+            return False
         channel_info = client.join_channel(channel_name)
         if not channel_info['success']:
             # Check if this channel_name was taken from the link
@@ -390,6 +393,10 @@ def user_authentication(client, user_bot_id):
 def follow_unfollow(client, main_menu_decision, user_bot_id):
     repeat_follow = True
     while repeat_follow:
+        i_active = connectDb.check_is_active(user_bot_id)
+        if not i_active:
+            active = 0
+            return active
         get_user_id = input("Enter user_account id, or 'q' to exit main menu: ")
         if get_user_id.lower() == "q":
             repeat_follow = False
@@ -541,6 +548,10 @@ def run_unfollowing(client, list_to_unfollow, user_bot_id):
     start_decision = start_follow_unfollow("run")
     if not start_decision:
         return False
+    i_active_to_start = connectDb.check_is_active(user_bot_id)
+    if not i_active_to_start:
+        active = 0
+        return active
     print("Starting operation...")
     time.sleep(3)
     unfollowed_list = []
@@ -585,13 +596,17 @@ def main_menu_controller(client, user_id, user_bot_id, username):
     main_menu_decision = get_main_menu_input()
 
     if main_menu_decision == 6:
-        chat_main(client)
+        i_active_chat_menu = chat_main(client, user_bot_id)
+        if not i_active_chat_menu:
+            return False
         if not repeat_menu(ask_to_repeat=False):
             return True
     elif main_menu_decision == 7:
         exit(0)
     elif main_menu_decision == 4 or main_menu_decision == 5:
-        follow_unfollow(client, main_menu_decision, user_bot_id)
+        i_active_to_follow = follow_unfollow(client, main_menu_decision, user_bot_id)
+        if i_active_to_follow == 0:
+            return False
         if not repeat_menu(ask_to_repeat=False):
             return True
     else:
@@ -602,6 +617,9 @@ def main_menu_controller(client, user_id, user_bot_id, username):
         table_to_display = ""
 
         if main_menu_decision == 1 or main_menu_decision == 2:
+            i_active_view = connectDb.check_is_active(user_bot_id)
+            if not i_active_view:
+                return False
             if main_menu_decision == 1:
                 table_to_display = compose_user_table(data_from_api=following_users)
             if main_menu_decision == 2:
@@ -615,6 +633,9 @@ def main_menu_controller(client, user_id, user_bot_id, username):
                 print("Demo expired. Please, contact administrator to purchase full version")
                 if not repeat_menu(ask_to_repeat=False):
                     return True
+            i_active_unfollow = connectDb.check_is_active(user_bot_id)
+            if not i_active_unfollow:
+                return False
             table_to_display = compose_non_mutual_user_table(data_from_api_following=following_users, data_from_api_mutual=mutual_followers)
             composed_action_list = tabulate.tabulate(table_to_display, headers=["#", "Id", "Username", "Name"], showindex = True, tablefmt = "pretty")
             print(composed_action_list)
@@ -627,6 +648,8 @@ def main_menu_controller(client, user_id, user_bot_id, username):
             action_list = follow_unfollow_list(table_to_display)
             unfollowed_list = run_unfollowing(client, action_list, user_bot_id)
             if not unfollowed_list:
+                if unfollowed_list == 0:  # if user not-active, hence cannot start
+                    return False
                 if not repeat_menu(unfollowed_list):
                     return True
             print("Building summary table...")
@@ -636,7 +659,7 @@ def main_menu_controller(client, user_id, user_bot_id, username):
                                                        showindex=True, tablefmt="pretty")
             print(unfollowed_list_pretty)
 
-        if not repeat_menu():
+    if not repeat_menu():
             return True
 
 
