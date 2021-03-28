@@ -13,6 +13,14 @@ def check_type_and_fare(user_bot_id):
         return True
 
 
+def check_is_active(user_bot_id):
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    is_active = c.execute("SELECT is_active FROM user_bot_data WHERE id = :id", {'id': user_bot_id}).fetchone()
+    c.close
+    return is_active[0]
+
+
 def get_acc_type(user_bot_id):
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
@@ -73,5 +81,7 @@ def get_user_ch_data(id):
 def write_user_ch_data(id, token, device, bot_id):
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
-    c.execute("UPDATE user_ch_data SET user_id = :id, user_token = :token, user_device = :device WHERE user_bot_id = :bot_id", {'id': id, 'token': token, 'device': device, 'bot_id': bot_id})
+    writen_data = c.execute("UPDATE user_ch_data SET user_id = :id, user_token = :token, user_device = :device WHERE user_bot_id = :bot_id", {'id': id, 'token': token, 'device': device, 'bot_id': bot_id})
     conn.commit()
+    conn.close()
+    return writen_data

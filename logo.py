@@ -7,3 +7,11 @@ def print_logo() :
 | |____  | |  | |   | |____  | | |  __/ | (_| | | | | | |  __/ | |   
  \_____| |_|  |_|    \_____| |_|  \___|  \__,_| |_| |_|  \___| |_|   
          """)
+
+def print_info():
+    print("""
+********************************************************************
+Periodically open main menu to refresh session data (advised in case 
+using several CH account and/or using it along with CHCleaner)
+********************************************************************
+""")

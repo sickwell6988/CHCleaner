@@ -363,7 +363,10 @@ def user_authentication(client, user_bot_id):
     user_token = result['auth_token']
     user_device = client.HEADERS.get("CH-DeviceId")
     # write_config(user_id, user_token, user_device)
-    connectDb.write_user_ch_data(user_id, user_token, user_device, user_bot_id)
+    write_data = connectDb.write_user_ch_data(user_id, user_token, user_device, user_bot_id)
+    if not write_data:
+        print("Something went wrong. Please, contact administrator (error code: 4)")
+        return False
 
     # print("[.] Writing configuration file complete.")
     print("[.] Successfully authenticated.")
@@ -497,14 +500,16 @@ def get_all_mutual(client, user_id, users_count):
             return all_users
 
 
-def display_stats(client, user_id):
+def display_stats(client, user_id, username):
     followers_stats_count, followings_stats_count, mutual_stats_count = get_stats(client, user_id)
+    print("CH Account: "+ username)
     print(f"Followers: {followers_stats_count}\t\tFollowing: {followings_stats_count}\t\tMutual followers: {mutual_stats_count}")
 
 
-def display_main_menu(client, user_id):
+def display_main_menu(client, user_id, username):
     print_logo()
-    display_stats(client, user_id)
+    print_info()
+    display_stats(client, user_id, username)
     print(main_menu_options)
 
 
@@ -571,9 +576,12 @@ def run_unfollowing(client, list_to_unfollow, user_bot_id):
     return unfollowed_list
 
 
-def main_menu_controller(client, user_id, user_bot_id):
+def main_menu_controller(client, user_id, user_bot_id, username):
+    is_active = connectDb.check_is_active(user_bot_id)
+    if not is_active:
+        return False
 
-    display_main_menu(client, user_id)
+    display_main_menu(client, user_id, username)
     main_menu_decision = get_main_menu_input()
 
     if main_menu_decision == 6:
@@ -655,7 +663,6 @@ def main(is_auth_passed=False, force_reauth = False, user_bot_id=False):
     while True:
         # Initialize configuration
         client = None
-
         if not not_first_auth:
             if not force_reauth:
                 is_cred_valid = False
@@ -689,11 +696,17 @@ def main(is_auth_passed=False, force_reauth = False, user_bot_id=False):
 
             # Check if user_account has not signed up yet.
             _check = client.me()
-            if not _check['user_profile'].get("username"):
+            username = _check['user_profile'].get("username")
+            if not username:
                 process_onboarding(client)
 
-            main_menu_controller(client, user_id, user_bot_id)
-            not_first_auth = True
+            result = main_menu_controller(client, user_id, user_bot_id, username)
+            if result:
+                not_first_auth = True
+            else:
+                print("Something went wrong. Please, contact administrator (error code: 2)")
+                not_first_auth = False
+                force_reauth = False
 
         else:
             client = Clubhouse()
